@@ -22,21 +22,17 @@ void publish() {
       sprintf(publishString, "Acceleration: %s", read);
       Spark.publish("Accelerometer", publishString);
     }
-
-    //Clear Array
-    for(int j = 0; i < sizeof(read);  ++j ) read[j] = (char)0;
-
+    for(int j = 0; i < sizeof(read);  ++j ) read[j] = (char);
 }
 
 void loop() {
     char temp;
     if (Serial1.available()) {
-        temp = Serial1.read();
-        read[i] = temp;
-        i++;
-    if(temp == ':'){
-        i=0;
-        publish();
+        Serial.print(Serial1.read());
+      //  read[i] = temp;
+      //  i++;
+  //  if(temp == ':'){
+    //    i=0;
+      //  publish();
     }
-}
 }
